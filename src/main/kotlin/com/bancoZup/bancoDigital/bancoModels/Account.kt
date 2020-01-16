@@ -13,9 +13,10 @@ class Account(
         @GeneratedValue(strategy = GenerationType.IDENTITY)
         var id: Int,
         @NotBlank(message = "The field numberAccount is required!")
-        var numberAccount: String,
+        var numberAccount: Long,
         @NotBlank(message = "The field balance is required!")
         var balance: Double,
+
 
         @OneToOne var costumer: Costumer
 )

@@ -1,14 +1,34 @@
     package com.bancoZup.bancoDigital.services
 
+import com.bancoZup.bancoDigital.bancoModels.Account
+import com.bancoZup.bancoDigital.bancoModels.Costumer
 import com.bancoZup.bancoDigital.repositories.AccountRepository
 import com.bancoZup.bancoDigital.repositories.CostumerRepository
 import org.springframework.stereotype.Service
 
 
     @Service
-class AccountService(var contaRepository: AccountRepository, var costumerRepository: CostumerRepository) {
+class AccountService(var accountRepository: AccountRepository, var costumerRepository: CostumerRepository) {
+
+
+
+//        fun createAccount(account: Account, costumer: Costumer) : Account{
+//           if(costumer.id != null){
+//
+//             val costumer_id =  account.costumer.id
+//               accountRepository.save(account)
+//           }else{
+//
+//               "sorry, id inexistent"
+//           }
+//            return account
+//
+//           }
 
 }
+
+
+
 
 //    fun save(conta: Conta, cliente: Cliente): String {
 //        conta.cliente

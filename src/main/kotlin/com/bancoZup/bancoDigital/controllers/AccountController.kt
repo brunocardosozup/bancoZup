@@ -1,14 +1,13 @@
 package com.bancoZup.bancoDigital.controllers
 
+import com.bancoZup.bancoDigital.bancoModels.Account
 import com.bancoZup.bancoDigital.bancoModels.Costumer
 import com.bancoZup.bancoDigital.services.CostumerService
 import com.bancoZup.bancoDigital.services.AccountService
-import org.springframework.http.HttpStatus
-import org.springframework.http.ResponseEntity
 import org.springframework.web.bind.annotation.*
 
 @RestController
-@RequestMapping("/account")
+@RequestMapping("/bank")
 class AccountController(var accountService: AccountService, var costumerService: CostumerService) {
 
 
@@ -18,7 +17,22 @@ class AccountController(var accountService: AccountService, var costumerService:
         return costumer
 
     }
+
+    @GetMapping("/allCostumer")
+    fun lookAllCostumer() = costumerService.findAll()
+
+
 }
+
+
+
+
+
+
+
+
+
+
 
 
 
