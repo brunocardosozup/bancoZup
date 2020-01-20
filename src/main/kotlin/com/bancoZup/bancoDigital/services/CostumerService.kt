@@ -16,6 +16,10 @@ class CostumerService(var costumerRepository: CostumerRepository) {
     fun createCostumer(costumer: Costumer): Costumer {
         return costumerRepository.save(costumer)
     }
+
+    fun findByid(id : Int) : Costumer{
+        return costumerRepository.findById(id).get()
+    }
 }
 
 

@@ -1,19 +1,15 @@
 package com.bancoZup.bancoDigital.bancoModels
 
-import com.fasterxml.jackson.annotation.JsonIgnoreProperties
 import javax.persistence.*
-import javax.persistence.criteria.CriteriaBuilder
 import javax.validation.constraints.NotBlank
 
+//these are the attributes of the class and constructor
 @Entity
-class Account(
-
+data class Account(
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Int,
-        @NotBlank(message = "The field numberAccount is required!")
-        var numberAccount: Long,
+        var id: Long,
         @NotBlank(message = "The field balance is required!")
         var balance: Double,
 

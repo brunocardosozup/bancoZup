@@ -21,8 +21,28 @@ class AccountController(var accountService: AccountService, var costumerService:
     @GetMapping("/allCostumer")
     fun lookAllCostumer() = costumerService.findAll()
 
+    @PostMapping("/create/account")
+    fun creatingAccount(id: Int): Costumer {
+        val costumer = costumerService.findByid(id)
+
+        accountService.createAccount(costumer)
+        return costumer
+    }
 
 }
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 

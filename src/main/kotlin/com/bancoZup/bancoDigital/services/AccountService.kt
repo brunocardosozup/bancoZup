@@ -5,27 +5,60 @@ import com.bancoZup.bancoDigital.bancoModels.Costumer
 import com.bancoZup.bancoDigital.repositories.AccountRepository
 import com.bancoZup.bancoDigital.repositories.CostumerRepository
 import org.springframework.stereotype.Service
+import java.util.*
 
 
     @Service
 class AccountService(var accountRepository: AccountRepository, var costumerRepository: CostumerRepository) {
 
+        val random = Random()
 
 
-//        fun createAccount(account: Account, costumer: Costumer) : Account{
-//           if(costumer.id != null){
-//
-//             val costumer_id =  account.costumer.id
-//               accountRepository.save(account)
-//           }else{
-//
-//               "sorry, id inexistent"
-//           }
-//            return account
-//
-//           }
+        fun createAccount(costumer: Costumer) {
+            if (costumer.id != null) {
+                val account = Account(id = random.nextLong(), balance = 12.10, costumer = costumer)
 
-}
+                accountRepository.save(account)
+            } else {
+
+                "sorry try again, costumer not found"
+            }
+
+        }
+    }
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
 
 
 
