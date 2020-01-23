@@ -1,5 +1,6 @@
 package com.bancoZup.bancoDigital.bancoModels
 
+import org.aspectj.weaver.Iterators.array
 import javax.persistence.*
 import javax.validation.constraints.NotBlank
 
@@ -8,26 +9,22 @@ data class Costumer(
 
         @Id
         @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long,
+
+        val id: Int,
         @NotBlank(message = "The field name is required!")
-        var name: String,
+        val name: String,
         @NotBlank(message = "The field cpf is required")
-        var cpf: String,
+        val cpf: String,
         @NotBlank(message = "The field numberPhone is required")
-        var numberFone: Int,
+        val numberFone: Int,
 
         @NotBlank(message = "The field account is required")
-        @OneToOne var account: Account? = null
+//        @JoinTable(name = "account", joinColumns = arrayOf<JoinColumn>(JoinColumn(name = "id")))
+
+        @OneToOne
+        var account: Account? = null
+
 
 )
-//
-//@OneToOne(mappedBy = "costumer")
-//lateinit var account: Account
-//
-
-//@OneToOne(mappedBy = "cliente")
-
-
-
 
 

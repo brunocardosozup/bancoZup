@@ -14,16 +14,20 @@ class AccountService(var accountRepository: AccountRepository, var costumerRepos
         val random = Random()
 
 
-        fun createAccount(costumer: Costumer) {
+        fun createAccount(costumer: Costumer, balance: Double){
             if (costumer.id != null) {
-                val account = Account(id = random.nextLong(), balance = 12.10, costumer = costumer)
-
+                val account = Account(id = random.nextInt(999), balance = balance, costumer = costumer)
                 accountRepository.save(account)
             } else {
 
                 "sorry try again, costumer not found"
             }
 
+        }
+
+
+        fun findAllAccount():kotlin.collections.List<Account>{
+            return accountRepository.findAll().toList()
         }
     }
 

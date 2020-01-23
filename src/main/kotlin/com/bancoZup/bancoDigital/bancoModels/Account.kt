@@ -7,26 +7,27 @@ import javax.validation.constraints.NotBlank
 @Entity
 data class Account(
 
+
+//        @GeneratedValue(strategy = GenerationType.IDENTITY)
+
+
         @Id
-        @GeneratedValue(strategy = GenerationType.IDENTITY)
-        var id: Long,
+        val id: Int,
+
         @NotBlank(message = "The field balance is required!")
-        var balance: Double,
+        val balance: Double,
 
 
-        @OneToOne var costumer: Costumer
+        @OneToOne val costumer: Costumer
 )
 
 
-
-
-    /*Método de depositar algum valor
-    fun deposita(valor : Double){
+/*Método de depositar algum valor
+fun deposita(valor : Double){
 contaT.saldo += valor
-    }
+}
 
-     */
-
+ */
 
 
 //

@@ -2,6 +2,7 @@ package com.bancoZup.bancoDigital.controllers
 
 import com.bancoZup.bancoDigital.bancoModels.Account
 import com.bancoZup.bancoDigital.bancoModels.Costumer
+import com.bancoZup.bancoDigital.controllers.requests.CreateAccountRequest
 import com.bancoZup.bancoDigital.services.CostumerService
 import com.bancoZup.bancoDigital.services.AccountService
 import org.springframework.web.bind.annotation.*
@@ -11,24 +12,16 @@ import org.springframework.web.bind.annotation.*
 class AccountController(var accountService: AccountService, var costumerService: CostumerService) {
 
 
-    @PostMapping("/create/costumer")
-    fun creatingCostumer(@RequestBody costumer: Costumer): Costumer {
-        costumerService.createCostumer(costumer)
-        return costumer
-
-    }
-
-    @GetMapping("/allCostumer")
-    fun lookAllCostumer() = costumerService.findAll()
-
     @PostMapping("/create/account")
-    fun creatingAccount(id: Int): Costumer {
-        val costumer = costumerService.findByid(id)
-
-        accountService.createAccount(costumer)
+    fun creatingAccount(@RequestBody request : CreateAccountRequest): Costumer {
+        val costumer = costumerService.findByid(request.id)
+        accountService.createAccount(costumer, request.balance)
         return costumer
     }
 
+
+@GetMapping("/allAccount")
+fun lookAllAccount() = accountService.findAllAccount()
 }
 
 
